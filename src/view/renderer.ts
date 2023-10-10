@@ -380,6 +380,8 @@ export default class DiceRenderer extends Component {
             if (!results) continue;
 
             roller.setResults(results);
+            roller.applyModifiers();
+            if (roller.conditions?.length) roller.applyConditions();
         }
         this.event.trigger("throw-finished", this.stack);
     }
